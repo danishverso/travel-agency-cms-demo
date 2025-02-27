@@ -50,7 +50,7 @@ const Section4 = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+    <section className="py-16 px-4 md:px-8 lg:px-16 xl:px-4 max-w-7xl mx-auto">
       <div className="md:mb-8">
         <h3 className="text-xl font-medium text-black mb-2">
           Top Destinations
