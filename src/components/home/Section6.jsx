@@ -36,14 +36,15 @@ const Section6 = () => {
 
   return (
     <div className="container mx-auto py-16 px-4">
-      <h2 className="text-center text-sm  mb-4">Testimonials</h2>
+      <h2 className="text-center text-xl  mb-4">Testimonials</h2>
 
-      <div className="max-w-3xl mx-auto text-center">
-        <p className="text-xl md:text-3xl mb-12 font-light">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-xl md:text-5xl mb-12 font-light">
           I've been on countless trips, but this one was different. Everything
-          was perfectly organized, and the local insights made it truly
-          unique. Can't wait for my next adventure!
-        </p>
+          was perfectly organized, and the local <br></br>
+          insights made it truly unique. Can't wait for my next <br></br>{" "}
+          adventure!
+        </h2>
 
         <div className="flex justify-center items-center gap-4 mb-2">
           {/* Profile images */}
