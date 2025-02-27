@@ -112,7 +112,7 @@ const Section5 = () => {
   const WIDTH_OF_SIDE_IMAGES = 14;
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+    <section className="py-16 px-4 md:px-8 lg:px-32 container mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start mb-8">
         <h3 className="text-lg font-medium text-gray-800">Top Packages</h3>
 

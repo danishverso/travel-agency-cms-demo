@@ -2,7 +2,7 @@ import React from "react";
 
 const Section3 = () => {
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
+    <section className="py-16 px-4 container mx-auto">
       <div className="text-center mb-16">
         <h3 className="text-lg font-medium mb-2">About Us</h3>
         <h2 className="text-4xl font-bold mb-4">

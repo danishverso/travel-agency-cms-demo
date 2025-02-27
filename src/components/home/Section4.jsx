@@ -1,9 +1,6 @@
-
-
+import React from "react";
 
 const Section4 = () => {
-
-
   const destinations = [
     {
       id: 1,
@@ -37,12 +34,38 @@ const Section4 = () => {
       description:
         "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
     },
+    {
+      id: 4,
+      image:
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Lorem Ipsum Dolor",
+      description:
+        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
+    },
+    {
+      id: 4,
+      image:
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Lorem Ipsum Dolor",
+      description:
+        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
+    },
   ];
 
+  // Add useEffect to set initial scroll position
+  const scrollContainerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (scrollContainerRef.current) {
+      // Set initial scroll position to move a bit to the right
+      // You can adjust the 150 value to control how far it scrolls
+      scrollContainerRef.current.scrollLeft = 640;
+    }
+  }, []);
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 xl:px-4 max-w-7xl mx-auto">
-      <div className="md:mb-8">
+    <section className="py-16 container mx-auto">
+      <div className="md:mb-8 px-4 md:px-8 lg:px-16 xl:px-12 ">
         <h3 className="text-xl font-medium text-black mb-2">
           Top Destinations
         </h3>
@@ -61,7 +84,7 @@ const Section4 = () => {
       </div>
 
       <div
- 
+        ref={scrollContainerRef}
         className="flex gap-6 py-8 pb-12 overflow-auto scrollbar-hide"
         style={{
           scrollBehavior: "smooth",
@@ -72,8 +95,12 @@ const Section4 = () => {
         {destinations.map((destination, index) => (
           <div
             key={destination.id}
-            className={`flex-shrink-0 ${index % 2 === 0 ? "mt-16" : "mb-12"}`}
-            style={{ width: "300px" }}
+            className={`flex-shrink-0  ${
+              index % 2 === 0 ? "mt-16 w-[300px] " : "mb-12 w-[380px]"
+            }
+            ${index === 0 ? "ml-10" : ""}  
+            ${index === destinations.length - 1 ? "mr-10" : ""}
+            `}
           >
             <div className="rounded-lg overflow-hidden shadow-md h-64">
               <img
