@@ -123,7 +123,7 @@ const Section = () => {
 
         <div className="relative h-full flex items-end justify-start">
           <div className="px-4 sm:px-6 lg:px-8 max-w-3xl md:ml-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-4 leading-tight">
               Discover the World,
               <br />
               One Destination at a Time!
