@@ -1,7 +1,8 @@
 
 
+
 const Section4 = () => {
-  const sliderRef = useRef(null);
+
 
   const destinations = [
     {
@@ -60,7 +61,7 @@ const Section4 = () => {
       </div>
 
       <div
-        ref={sliderRef}
+ 
         className="flex gap-6 py-8 pb-12 overflow-auto scrollbar-hide"
         style={{
           scrollBehavior: "smooth",
