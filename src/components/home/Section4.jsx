@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { motion } from "framer-motion";
+
 
 const Section4 = () => {
   const sliderRef = useRef(null);
@@ -39,15 +38,6 @@ const Section4 = () => {
     },
   ];
 
-  const handleDrag = (e, { offset, velocity }) => {
-    if (sliderRef.current) {
-      if (offset.x < -100 && velocity.x < -0.3) {
-        sliderRef.current.scrollBy({ left: 400, behavior: "smooth" });
-      } else if (offset.x > 100 && velocity.x > 0.3) {
-        sliderRef.current.scrollBy({ left: -400, behavior: "smooth" });
-      }
-    }
-  };
 
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16 xl:px-4 max-w-7xl mx-auto">
