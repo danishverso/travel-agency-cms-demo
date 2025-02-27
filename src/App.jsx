@@ -1,16 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import Section from "./components/home/Section";
+import Section2  from "./components/home/Section2";
+import Section3 from "./components/home/Section3";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function Home() {
   return (
-    <>
-
-    </>
+    <div className="h-screen w-screen">
+      <Section />
+      <Section2 />
+      <Section3 />
+      
+    </div>
   );
 }
-
-export default App;
