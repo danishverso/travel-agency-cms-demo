@@ -1,9 +1,22 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Section5 = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const sliderRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Set initial mobile state
+    setIsMobile(window.innerWidth < 640);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const tours = [
     {
@@ -112,7 +125,7 @@ const Section5 = () => {
   const WIDTH_OF_SIDE_IMAGES = 14;
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-32 container mx-auto">
+    <section className="px-4 md:px-8 lg:px-32 container mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start mb-8">
         <h3 className="text-lg font-medium text-gray-800">Top Packages</h3>
 
@@ -131,7 +144,7 @@ const Section5 = () => {
 
       {/* Slider navigation */}
       <div className="flex justify-between items-center mb-6">
-        <div className="w-24 h-1 bg-gray-300 rounded-full">
+        <div className="w-92 h-1 bg-gray-300 rounded-full mr-4">
           <div
             className="h-full bg-gray-800 rounded-full"
             style={{ width: `${((currentSlide + 1) / tours.length) * 100}%` }}
@@ -167,11 +180,11 @@ const Section5 = () => {
       <div className="relative overflow-hidden">
         <div
           ref={sliderRef}
-          className="flex transition-transform duration-300 ease-in-out"
+          className="ml-0 sm:ml-[23%] flex transition-transform duration-300 ease-in-out"
           style={{
             transform: `translateX(-${currentSlide * WIDTH_OF_SIDE_IMAGES}%)`,
             width: `${tours.length * 20.33}%`,
-            marginLeft: "23%",
+            ...(isMobile && { transform: "translateX(0)", width: "100%" }), // Override transform on mobile
           }}
         >
           {tours.map((tour, index) => (
@@ -179,7 +192,7 @@ const Section5 = () => {
               {index === currentSlide ? (
                 <div
                   key={tour.id}
-                  className={`w-1/3 flex-shrink-0 px-4 transition-all duration-300 ${
+                  className={`w-full sm:w-1/3 flex-shrink-0 px-4 transition-all duration-300 ${
                     index === currentSlide ? "scale-100 opacity-100 z-10" : ""
                   }`}
                 >
@@ -207,11 +220,11 @@ const Section5 = () => {
                       <p className="text-gray-600 mt-2 line-clamp-2">
                         {tour.description}
                       </p>
-                      <div className="flex justify-between items-center mt-4">
-                        <div className="text-xl rounded-sm border border-black p-2">
+                      <div className="flex sm:flex-row flex-col gap-2 justify-between items-center mt-4">
+                        <div className="text-xl rounded-sm border border-black p-2 w-full sm:w-auto text-center ">
                           From ${tour.price}
                         </div>
-                        <button className="bg-teal-800 text-xl text-white font-light px-4 py-2 rounded">
+                        <button className="bg-teal-800 text-xl text-white font-light px-4 py-2 rounded w-full sm:w-auto text-center">
                           Book now
                         </button>
                       </div>
@@ -221,7 +234,7 @@ const Section5 = () => {
               ) : (
                 <div
                   key={tour.id}
-                  className={`w-[${WIDTH_OF_SIDE_IMAGES}%] flex-shrink-0 px-1  transition-all duration-300 `}
+                  className={`hidden sm:block w-[${WIDTH_OF_SIDE_IMAGES}%] flex-shrink-0 px-1  transition-all duration-300 `}
                 >
                   <img
                     src={tour.image}
