@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { gsap } from "gsap";
 
 const Section4 = () => {
   const destinations = [
@@ -52,16 +53,108 @@ const Section4 = () => {
     },
   ];
 
-  // Add useEffect to set initial scroll position
-  const scrollContainerRef = React.useRef(null);
+  const scrollContainerRef = useRef(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const animationRef = useRef(null);
 
-  React.useEffect(() => {
-    if (scrollContainerRef.current) {
-      // Set initial scroll position to move a bit to the right
-      // You can adjust the 150 value to control how far it scrolls
-      scrollContainerRef.current.scrollLeft = 640;
+  useEffect(() => {
+    // Make sure GSAP is available
+    if (!gsap) return;
+
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    // First, clear any existing children that might be clones
+    const originalChildren = Array.from(scrollContainer.children).slice(
+      0,
+      destinations.length
+    );
+    scrollContainer.innerHTML = "";
+
+    // Add back the original items
+    originalChildren.forEach((child) => {
+      scrollContainer.appendChild(child);
+    });
+
+    // Then clone items for seamless looping
+    originalChildren.forEach((item) => {
+      const clone = item.cloneNode(true);
+      scrollContainer.appendChild(clone);
+    });
+
+    // Calculate total width of all original items
+    const totalWidth = originalChildren.reduce(
+      (width, item) => width + item.offsetWidth + 24,
+      0
+    ); // 24px for gap
+
+    // Kill any existing animation
+    if (animationRef.current) {
+      animationRef.current.kill();
+      animationRef.current = null;
     }
-  }, []);
+
+    // Create a fresh animation
+    animationRef.current = gsap.to(scrollContainer, {
+      x: -totalWidth,
+      duration: 20,
+      ease: "none",
+      repeat: -1,
+      paused: isHovering,
+    });
+
+    // Handle window resize
+    const handleResize = () => {
+      if (animationRef.current) {
+        animationRef.current.kill();
+
+        // Recalculate width after resize
+        const newTotalWidth = originalChildren.reduce(
+          (width, item) => width + item.offsetWidth + 24,
+          0
+        );
+
+        // Create new animation with updated dimensions
+        animationRef.current = gsap.to(scrollContainer, {
+          x: -newTotalWidth,
+          duration: 20,
+          ease: "none",
+          repeat: -1,
+          paused: isHovering,
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.kill();
+        animationRef.current = null;
+      }
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Only run once on mount
+
+  // Create a separate effect for handling hover state
+  useEffect(() => {
+    if (animationRef.current) {
+      if (isHovering) {
+        animationRef.current.pause();
+      } else {
+        animationRef.current.play();
+      }
+    }
+  }, [isHovering]);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
 
   return (
     <section className="py-16 container mx-auto">
@@ -85,40 +178,43 @@ const Section4 = () => {
         </div>
       </div>
 
-      <div
-        ref={scrollContainerRef}
-        className="flex gap-6 py-8 pb-12 overflow-auto scrollbar-hide"
-        style={{
-          scrollBehavior: "smooth",
-          msOverflowStyle: "none" /* IE and Edge */,
-          scrollbarWidth: "none" /* Firefox */,
-        }}
-      >
-        {destinations.map((destination, index) => (
-          <div
-            key={destination.id}
-            className={`flex-shrink-0  ${
-              index % 2 === 0 ? "mt-16 w-[300px] " : "mb-12 w-[380px]"
-            }
-            ${index === 0 ? "ml-10" : ""}  
-            ${index === destinations.length - 1 ? "mr-10" : ""}
-            `}
-          >
-            <div className="rounded-lg overflow-hidden shadow-md h-64">
-              <img
-                src={destination.image}
-                alt={destination.title}
-                className="w-full h-full object-cover"
-              />
+      <div className="overflow-hidden">
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-6 py-8 pb-12"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            display: "flex",
+            willChange: "transform",
+          }}
+        >
+          {destinations.map((destination, index) => (
+            <div
+              key={`${destination.id}-${index}`}
+              className={`flex-shrink-0 ${
+                index % 2 === 0 ? "mt-16 w-[300px] " : "mb-12 w-[380px]"
+              }
+              ${index === 0 ? "ml-10" : ""}  
+              ${index === destinations.length - 1 ? "mr-10" : ""}
+              `}
+            >
+              <div className="rounded-lg overflow-hidden shadow-md h-64 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                <img
+                  src={destination.image}
+                  alt={destination.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold">{destination.title}</h3>
+                <p className="text-gray-600 text-sm mt-2">
+                  {destination.description}
+                </p>
+              </div>
             </div>
-            <div className="mt-4">
-              <h3 className="text-xl font-semibold">{destination.title}</h3>
-              <p className="text-gray-600 text-sm mt-2">
-                {destination.description}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
