@@ -122,12 +122,15 @@ const Section = () => {
             className="w-full h-[45rem] object-cover object-top"
           />
           {/* Hero Text */}
-          <div ref={textRef} className="absolute bottom-10 left-10 text-white">
+          <div
+            ref={textRef}
+            className="absolute bottom-10 left-10 text-white mr-10"
+          >
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={isTextInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="font-satoshi text-4xl sm:text-5xl mb-2"
+              className="font-satoshi text-3xl xs:text-4xl sm:text-5xl mb-2"
             >
               Discover the World,
               <br className="hidden sm:block" />
