@@ -89,7 +89,7 @@ const Section6 = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-32 h-32 self-end rounded-lg overflow-hidden">
+          <div className="w-32 h-38 p[y]-10 self-end rounded-lg overflow-hidden">
             <img
               src={testimonials[1].image}
               alt={testimonials[1].name}

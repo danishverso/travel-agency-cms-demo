@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion"; // Import framer-motion
 import userIcon from "../../assets/user.svg";
 import calendarIcon from "../../assets/calender.svg";
-import { motion, AnimatePresence } from "framer-motion";
-
 const Section2 = () => {
   // Updated array with image data including titles and descriptions
   const [imageData, setImageData] = useState([
@@ -85,49 +84,35 @@ const Section2 = () => {
   };
 
   return (
-    <div className="container mt-10 mx-auto px-4 py-12 overflow-hidden">
+    <div className="container mx-auto px-4 py-12">
       {/* Find Your Destination Section */}
-      <div className="mb-12 ">
-        <h2 className="text-5xl  mb-8">
-          Find Your <span className="text-primary">Destination!</span>
+      <div className="mb-12">
+        <h2 className="text-4xl  mb-8">
+          Find Your <span className="text-teal-600">Destination!</span>
         </h2>
 
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           {/* Departure Date Selector */}
           <div className="flex-1">
-            <label className="block mb-2 font-medium">Departure</label>
-            <div className="relative flex items-center border rounded-md p-3 bg-white">
-              {/* Calendar Icon */}
-              <img
-                src={calendarIcon}
-                alt="Calendar Icon"
-                className="w-5 h-5 text-gray-500 mr-2"
-              />
-
-              <select className="w-full bg-transparent outline-none appearance-none">
-                <option>25 February 2025</option>
-                <option>26 February 2025</option>
-                <option>27 February 2025</option>
-              </select>
-
-              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                <svg
-                  className="w-5 h-5 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-          </div>
+  <label className="block mb-2 font-medium">Departure</label>
+  <div className="relative flex items-center border rounded-md p-3 bg-white">
+    
+    {/* Calendar Icon */}
+    <img src={calendarIcon} alt="Calendar Icon" className="w-5 h-5 text-gray-500 mr-2" />
+    
+    <select className="w-full bg-transparent outline-none appearance-none">
+      <option>25 February 2025</option>
+      <option>26 February 2025</option>
+      <option>27 February 2025</option>
+    </select>
+    
+    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+      <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </div>
+</div>
           {/* Destination Selector */}
           <div className="flex-1">
             <label className="block mb-2 font-medium">Destination</label>
@@ -158,42 +143,28 @@ const Section2 = () => {
           </div>
 
           {/* Persons Selector */}
-          {/* Persons Selector */}
-          <div className="flex-1">
-            <label className="block mb-2 font-medium">Persons</label>
-            <div className="relative flex items-center border rounded-md p-3 bg-white">
-              {/* User Icon from Assets */}
-              <img
-                src={userIcon}
-                alt="User Icon"
-                className="w-5 h-5 text-gray-500 mr-2"
-              />
+        {/* Persons Selector */}
+<div className="flex-1">
+  <label className="block mb-2 font-medium">Persons</label>
+  <div className="relative flex items-center border rounded-md p-3 bg-white">
+    {/* User Icon from Assets */}
+    <img src={userIcon} alt="User Icon" className="w-5 h-5 text-gray-500 mr-2" />
+    
+    <select className="w-full bg-transparent outline-none appearance-none">
+      <option>2 Adult - 2 Children's</option>
+      <option>1 Adult</option>
+      <option>2 Adults</option>
+      <option>2 Adults - 1 Child</option>
+    </select>
+    
+    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+      <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </div>
+</div>
 
-              <select className="w-full bg-transparent outline-none appearance-none">
-                <option>2 Adult - 2 Children's</option>
-                <option>1 Adult</option>
-                <option>2 Adults</option>
-                <option>2 Adults - 1 Child</option>
-              </select>
-
-              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                <svg
-                  className="w-5 h-5 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-          </div>
 
           {/* Search Button */}
           <div className="flex items-end">
@@ -205,29 +176,14 @@ const Section2 = () => {
       </div>
 
       {/* Featured Destinations Section */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={animationSettings.fadeVariants}
-        transition={{ duration: 0.5 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full xl:w-[80%] relative"
-      >
-        {/* Destination Image */}
-        <div className="rounded-lg overflow-hidden aspect-square relative">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.img
-              key={currentImageIndex}
-              src={imageData[currentImageIndex].url}
-              alt={imageData[currentImageIndex].title}
-              className="w-full h-full object-cover absolute top-0 left-0"
-              custom={direction}
-              variants={animationSettings.variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={animationSettings.transition}
-            />
-          </AnimatePresence>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full xl:w-[80%] ">
+        {/* Lagoon View Villa */}
+        <div className="rounded-lg overflow-hidden aspect-square">
+          <img
+            src={images[currentImageIndex]}
+            alt="Lagoon View Villa"
+            className="w-full h-full object-cover transition-opacity duration-300"
+          />
         </div>
 
         <div className="flex flex-col justify-between">
@@ -275,7 +231,6 @@ const Section2 = () => {
             </div>
             <span className="text-gray-500">
               <span className="text-2xl text-black">
-                {" "}
                 {currentImageIndex + 1}
               </span>
               <span className="text-gray-400">/{imageData.length}</span>
@@ -324,26 +279,7 @@ const Section2 = () => {
             </div>
           </div>
         </div>
-
-        {/* Peek of next image on right side */}
-        <div className="hidden md:block absolute -right-94 top-1/2 transform -translate-y-1/2 w-64 h-100 overflow-hidden rounded-lg">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.img
-              key={currentImageIndex}
-              src={imageData[(currentImageIndex + 1) % imageData.length].url}
-              alt="Next destination peek"
-              className="h-full object-cover"
-              style={{ objectPosition: "left" }}
-              custom={direction}
-              variants={animationSettings.fadeVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-            />
-          </AnimatePresence>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
