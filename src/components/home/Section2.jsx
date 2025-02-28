@@ -1,43 +1,87 @@
 import React, { useState } from "react";
 import userIcon from "../../assets/user.svg";
 import calendarIcon from "../../assets/calender.svg";
+import { motion, AnimatePresence } from "framer-motion";
+
 const Section2 = () => {
   // Updated array with image data including titles and descriptions
   const [imageData, setImageData] = useState([
     {
       url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1139&q=80",
+      smallImageUrl:
+        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       title: "Lagoon View Villa",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cons"
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cons",
     },
     {
       url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      smallImageUrl:
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       title: "Beachfront Paradise",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      description:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
       url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      smallImageUrl:
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       title: "Ocean View Suite",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      description:
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
     },
     {
       url: "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      smallImageUrl:
+        "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       title: "Tropical Retreat",
-      description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor."
+      description:
+        "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor.",
     },
   ]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
 
-  // Functions to handle navigation
+  // Functions to handle navigation with animation
   const goToPrevious = () => {
+    setDirection(-1);
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? imageData.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
+    setDirection(1);
     setCurrentImageIndex((prevIndex) =>
       prevIndex === imageData.length - 1 ? 0 : prevIndex + 1
     );
+  };
+
+  // Animation settings object with much faster transitions
+  const animationSettings = {
+    variants: {
+      enter: (direction) => ({
+        x: direction > 0 ? 300 : -300,
+        opacity: 0,
+      }),
+      center: {
+        x: 0,
+        opacity: 1,
+      },
+      exit: (direction) => ({
+        x: direction < 0 ? 300 : -300,
+        opacity: 0,
+      }),
+    },
+    fadeVariants: {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1 },
+      exit: { opacity: 0 },
+    },
+    transition: {
+      x: { type: "tween", duration: 0.1 },
+      opacity: { duration: 0.1 },
+    },
   };
 
   return (
@@ -161,31 +205,73 @@ const Section2 = () => {
       </div>
 
       {/* Featured Destinations Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full xl:w-[80%] ">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={animationSettings.fadeVariants}
+        transition={{ duration: 0.5 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full xl:w-[80%] "
+      >
         {/* Destination Image */}
-        <div className="rounded-lg overflow-hidden aspect-square">
-          <img
-            src={imageData[currentImageIndex].url}
-            alt={imageData[currentImageIndex].title}
-            className="w-full h-full object-cover transition-opacity duration-300"
-          />
+        <div className="rounded-lg overflow-hidden aspect-square relative">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.img
+              key={currentImageIndex}
+              src={imageData[currentImageIndex].url}
+              alt={imageData[currentImageIndex].title}
+              className="w-full h-full object-cover absolute top-0 left-0"
+              custom={direction}
+              variants={animationSettings.variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={animationSettings.transition}
+            />
+          </AnimatePresence>
         </div>
 
         <div className="flex flex-col justify-between">
-          <div className="pt-5">
-            <h3 className="text-3xl font-bold mb-4">{imageData[currentImageIndex].title}</h3>
-            <p className="text-gray-600">
-              {imageData[currentImageIndex].description}
-            </p>
-          </div>
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              custom={direction}
+              variants={animationSettings.variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={animationSettings.transition}
+              className="pt-5"
+            >
+              <h3 className="text-3xl font-bold mb-4">
+                {imageData[currentImageIndex].title}
+              </h3>
+              <p className="text-gray-600">
+                {imageData[currentImageIndex].description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
           <div className="flex items-end mt-6">
             <div className="w-52 h-52 rounded-md overflow-hidden mr-4">
-              <img
-                src={imageData[(currentImageIndex + 1) % imageData.length].url}
-                alt={imageData[(currentImageIndex + 1) % imageData.length].title}
-                className="w-full h-full object-cover"
-              />
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.img
+                  key={currentImageIndex}
+                  src={
+                    imageData[(currentImageIndex + 1) % imageData.length]
+                      .smallImageUrl
+                  }
+                  alt={
+                    imageData[(currentImageIndex + 1) % imageData.length].title
+                  }
+                  className="w-full h-full object-cover"
+                  custom={direction}
+                  variants={animationSettings.variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={animationSettings.transition}
+                />
+              </AnimatePresence>
             </div>
             <span className="text-gray-500">
               <span className="text-2xl text-black">
@@ -238,7 +324,7 @@ const Section2 = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
