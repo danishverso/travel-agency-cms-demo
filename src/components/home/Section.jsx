@@ -98,7 +98,7 @@ const Section = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative w-full h-screen">
+      <div className="relative w-full">
         <img
           src="./src/assets/main.jpeg"
           alt="Tropical beach with boats"
