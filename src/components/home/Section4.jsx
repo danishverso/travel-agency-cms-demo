@@ -94,13 +94,17 @@ const Section4 = () => {
       animationRef.current = null;
     }
 
-    // Create a fresh animation
+    // Create a fresh animation with adjusted duration based on screen width
+    const isMobile = window.innerWidth < 768;
+    const animationDuration = isMobile ? 30 : 20; // Slower on mobile
+    
     animationRef.current = gsap.to(scrollContainer, {
       x: -totalWidth,
-      duration: 20,
+      duration: animationDuration,
       ease: "none",
       repeat: -1,
       paused: isHovering,
+      force3D: true, // Force GPU acceleration
     });
 
     // Handle window resize
@@ -114,13 +118,18 @@ const Section4 = () => {
           0
         );
 
+        // Adjust animation duration based on screen width
+        const isMobile = window.innerWidth < 768;
+        const newDuration = isMobile ? 30 : 20;
+
         // Create new animation with updated dimensions
         animationRef.current = gsap.to(scrollContainer, {
           x: -newTotalWidth,
-          duration: 20,
+          duration: newDuration,
           ease: "none",
           repeat: -1,
           paused: isHovering,
+          force3D: true, // Force GPU acceleration
         });
       }
     };
@@ -135,7 +144,7 @@ const Section4 = () => {
       }
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // Only run once on mount
+  }, [destinations.length, isHovering]); // Added dependencies
 
   // Create a separate effect for handling hover state
   useEffect(() => {
@@ -187,6 +196,7 @@ const Section4 = () => {
           style={{
             display: "flex",
             willChange: "transform",
+            transform: "translateZ(0)", // Force GPU acceleration
           }}
         >
           {destinations.map((destination, index) => (
@@ -194,9 +204,7 @@ const Section4 = () => {
               key={`${destination.id}-${index}`}
               className={`flex-shrink-0 ${
                 index % 2 === 0 ? "mt-16 w-[300px] " : "mb-12 w-[380px]"
-              }
-             
-              `}
+              }`}
             >
               <div className="rounded-lg overflow-hidden shadow-md h-64 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
                 <img
