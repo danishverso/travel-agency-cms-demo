@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion"; // For section animation
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section6 = () => {
   const testimonials = [
@@ -29,26 +34,54 @@ const Section6 = () => {
       quote:
         "From start to finish, this trip was flawlessly executed. The local experiences were the highlight for me.",
     },
-    // Add more testimonials if needed
   ];
 
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const textRef = useRef(null);
+  const words = testimonials[0].quote.split(" ");
 
-  
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current.children,
+        { opacity: 0.1 },
+        {
+          opacity: 1,
+          ease: "none",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: true,
+          },
+        }
+      );
+    }
+  }, []);
+
   return (
-    <div className="container mx-auto py-16 px-4">
-      <h2 className="text-center text-xl  mb-4">Testimonials</h2>
+    <motion.div
+      className="container mx-auto py-56 px-4"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: false }}
+    >
+      <h2 className="text-center text-xl mb-4">Testimonials</h2>
 
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-xl md:text-5xl mb-12 font-light">
-          I've been on countless trips, but this one was different. Everything
-          was perfectly organized, and the local <br></br>
-          insights made it truly unique. Can't wait for my next <br></br>{" "}
-          adventure!
+        <h2
+          ref={textRef}
+          className="text-xl md:text-5xl mb-12 font-light justify-center"
+          style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}
+        >
+          {words.map((word, index) => (
+            <span key={index} className="inline-block">
+              {word}
+            </span>
+          ))}
         </h2>
-
         <div className="flex justify-center items-center gap-4 mb-2">
-          {/* Profile images */}
           <div className="w-32 h-32 self-end rounded-lg overflow-hidden">
             <img
               src={testimonials[0].image}
@@ -56,7 +89,7 @@ const Section6 = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-32 h-38 rounded-lg overflow-hidden">
+          <div className="w-32 h-32 self-end rounded-lg overflow-hidden">
             <img
               src={testimonials[1].image}
               alt={testimonials[1].name}
@@ -73,15 +106,11 @@ const Section6 = () => {
         </div>
 
         <div className="text-center">
-          <h3 className="font-medium text-lg">
-            {testimonials[activeTestimonial].name}
-          </h3>
-          <p className="text-sm text-gray-500">
-            {testimonials[activeTestimonial].subtitle}
-          </p>
+          <h3 className="font-medium text-lg">{testimonials[0].name}</h3>
+          <p className="text-sm text-gray-500">{testimonials[0].subtitle}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
