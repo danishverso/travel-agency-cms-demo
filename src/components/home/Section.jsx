@@ -41,6 +41,9 @@ const Section = () => {
           </div>
 
           {/* Logo */}
+          <div className="absolute left-1/2 top-0 xl:top-2 -translate-x-1/2  flex items-center justify-center ">
+            <span className="text-3xl font-bold">LOGO</span>
+          </div>
 
           {/* Search & Menu */}
           <div className="flex items-center space-x-4 ml-auto">
@@ -120,11 +123,13 @@ const Section = () => {
         {/* Hero Section */}
         <div className="">
           <img
-            src="./src/assets/main-with-logo.png"
+            src="./src/assets/main-with-design.png"
             alt="Tropical beach with boats"
             className="w-full h-[45rem] object-cover object-top"
-          />
-
+          />{" "}
+          <div className="absolute left-1/2 -translate-x-1/2  flex items-center justify-center shadow-md">
+            <span className="text-xl font-bold">LOGO</span>
+          </div>
           {/* Hero Text */}
           <motion.div
             initial={{ opacity: 0, y: 50 }} // Start hidden
