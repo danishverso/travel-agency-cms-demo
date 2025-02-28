@@ -1,6 +1,60 @@
 import React from "react";
 
 const Section3 = () => {
+  // Array of image objects with all necessary data
+  const galleryImages = [
+    // First row
+    {
+      id: 1,
+      src: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      alt: "Maldives water bungalows",
+      position: "self-end",
+      height: "md:h-[90%]",
+      row: 1,
+    },
+    {
+      id: 2,
+      src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      alt: "Canal in Venice",
+      position: "",
+      height: "",
+      row: 1,
+    },
+    {
+      id: 3,
+      src: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      alt: "Tropical island resort",
+      position: "self-end",
+      height: "md:h-[90%]",
+      row: 1,
+    },
+    // Second row
+    {
+      id: 4,
+      src: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      alt: "Wat Arun temple in Bangkok",
+      position: "self-start",
+      height: "md:h-[90%]",
+      row: 2,
+    },
+    {
+      id: 5,
+      src: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      alt: "Long-tail boat in Thailand",
+      position: "",
+      height: "",
+      row: 2,
+    },
+    {
+      id: 6,
+      src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      alt: "Waterfall in tropical forest",
+      position: "self-start",
+      height: "md:h-[90%]",
+      row: 2,
+    },
+  ];
+
   return (
     <section className="py-16 px-4 container mx-auto">
       <div className="text-center mb-16">
@@ -17,67 +71,20 @@ const Section3 = () => {
 
       <div className="max-w-screen-lg mx-auto px-4">
         <div className="grid grid-cols-12 gap-4 md:gap-6 lg:h-[40rem]">
-          {/* First row */}
-          <div className="col-span-12 md:col-span-4 lg:col-span-4 md:h-[90%] self-end">
-            <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Maldives water bungalows"
-                className="w-full h-64 md:h-full object-cover"
-              />
+          {galleryImages.map((image) => (
+            <div
+              key={image.id}
+              className={`col-span-12 md:col-span-4 lg:col-span-4 ${image.height} ${image.position}`}
+            >
+              <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 h-full">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
-
-          <div className="col-span-12 md:col-span-4 lg:col-span-4">
-            <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Canal in Venice"
-                className="w-full h-64 md:h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="col-span-12 md:col-span-4 lg:col-span-4 md:h-[90%] self-end">
-            <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Tropical island resort"
-                className="w-full h-64 md:h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Second row */}
-          <div className="col-span-12 md:col-span-4 lg:col-span-4 md:h-[90%] self-start">
-            <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Wat Arun temple in Bangkok"
-                className="w-full h-64 md:h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="col-span-12 md:col-span-4 lg:col-span-4">
-            <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Long-tail boat in Thailand"
-                className="w-full h-64 md:h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="col-span-12 md:col-span-4 lg:col-span-4 md:h-[90%] self-start">
-            <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Waterfall in tropical forest"
-                className="w-full h-64 md:h-full object-cover"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
