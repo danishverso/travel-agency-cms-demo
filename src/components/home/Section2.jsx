@@ -210,7 +210,7 @@ const Section2 = () => {
         animate="visible"
         variants={animationSettings.fadeVariants}
         transition={{ duration: 0.5 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full xl:w-[80%] "
+        className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full xl:w-[80%] relative"
       >
         {/* Destination Image */}
         <div className="rounded-lg overflow-hidden aspect-square relative">
@@ -323,6 +323,25 @@ const Section2 = () => {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* Peek of next image on right side */}
+        <div className="hidden md:block absolute -right-56 top-1/2 transform -translate-y-1/2 w-32 h-100 overflow-hidden rounded-lg">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.img
+              key={currentImageIndex}
+              src={imageData[(currentImageIndex + 1) % imageData.length].url}
+              alt="Next destination peek"
+              className="h-full object-cover"
+              style={{ objectPosition: "left" }}
+              custom={direction}
+              variants={animationSettings.fadeVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+            />
+          </AnimatePresence>
         </div>
       </motion.div>
     </div>
