@@ -195,8 +195,7 @@ const Section4 = () => {
               className={`flex-shrink-0 ${
                 index % 2 === 0 ? "mt-16 w-[300px] " : "mb-12 w-[380px]"
               }
-              ${index === 0 ? "ml-10" : ""}  
-              ${index === destinations.length - 1 ? "mr-10" : ""}
+             
               `}
             >
               <div className="rounded-lg overflow-hidden shadow-md h-64 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
