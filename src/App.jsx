@@ -1,5 +1,5 @@
 import Section from "./components/home/Section";
-import Section2  from "./components/home/Section2";
+import Section2 from "./components/home/Section2";
 import Section3 from "./components/home/Section3";
 import Section4 from "./components/home/Section4";
 import Section5 from "./components/home/Section5";
@@ -8,7 +8,7 @@ import Section7 from "./components/home/Section7";
 
 export default function Home() {
   return (
-    <div className="h-screen w-full overflow-x-hidden">
+    <>
       <Section />
       <Section2 />
       <Section3 />
@@ -16,6 +16,6 @@ export default function Home() {
       <Section5 />
       <Section6 />
       <Section7 />
-    </div>
+    </>
   );
 }
