@@ -97,7 +97,7 @@ const Section4 = () => {
     // Create a fresh animation with adjusted duration based on screen width
     const isMobile = window.innerWidth < 768;
     const animationDuration = isMobile ? 30 : 20; // Slower on mobile
-    
+
     animationRef.current = gsap.to(scrollContainer, {
       x: -totalWidth,
       duration: animationDuration,
