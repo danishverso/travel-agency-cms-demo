@@ -85,7 +85,7 @@ const Section2 = () => {
   };
 
   return (
-    <div className="container mt-10 mx-auto px-4 py-12">
+    <div className="container mt-10 mx-auto px-4 py-12 overflow-hidden">
       {/* Find Your Destination Section */}
       <div className="mb-12 ">
         <h2 className="text-5xl  mb-8">
@@ -326,7 +326,7 @@ const Section2 = () => {
         </div>
 
         {/* Peek of next image on right side */}
-        <div className="hidden md:block absolute -right-56 top-1/2 transform -translate-y-1/2 w-32 h-100 overflow-hidden rounded-lg">
+        <div className="hidden md:block absolute -right-94 top-1/2 transform -translate-y-1/2 w-64 h-100 overflow-hidden rounded-lg">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.img
               key={currentImageIndex}
