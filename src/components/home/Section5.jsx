@@ -180,9 +180,7 @@ const Section5 = () => {
           ref={sliderRef}
           className="ml-0 sm:ml-[23%] flex transition-transform duration-300 ease-in-out"
           style={{
-            transform: `translateX(-${
-              currentSlide * 14
-            }%)`,
+            transform: `translateX(-${currentSlide * 14}%)`,
             width: `${tours.length * 20.33}%`,
             ...(isMobile && { transform: "translateX(0)", width: "100%" }), // Override transform on mobile
           }}
@@ -224,7 +222,7 @@ const Section5 = () => {
                         <div className="text-xl rounded-sm border border-black p-2 w-full sm:w-auto text-center ">
                           From ${tour.price}
                         </div>
-                        <button className="bg-teal-800 text-xl text-white font-light px-4 py-2 rounded w-full sm:w-auto text-center">
+                        <button className="bg-primary text-xl text-white font-light px-4 py-2 rounded w-full sm:w-auto text-center">
                           Book now
                         </button>
                       </div>

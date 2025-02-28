@@ -25,35 +25,49 @@ const Section2 = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mt-10 mx-auto px-4 py-12">
       {/* Find Your Destination Section */}
-      <div className="mb-12">
-        <h2 className="text-4xl  mb-8">
+      <div className="mb-12 ">
+        <h2 className="text-5xl  mb-8">
           Find Your <span className="text-primary">Destination!</span>
         </h2>
 
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           {/* Departure Date Selector */}
           <div className="flex-1">
-  <label className="block mb-2 font-medium">Departure</label>
-  <div className="relative flex items-center border rounded-md p-3 bg-white">
-    
-    {/* Calendar Icon */}
-    <img src={calendarIcon} alt="Calendar Icon" className="w-5 h-5 text-gray-500 mr-2" />
-    
-    <select className="w-full bg-transparent outline-none appearance-none">
-      <option>25 February 2025</option>
-      <option>26 February 2025</option>
-      <option>27 February 2025</option>
-    </select>
-    
-    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-      <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-      </svg>
-    </div>
-  </div>
-</div>
+            <label className="block mb-2 font-medium">Departure</label>
+            <div className="relative flex items-center border rounded-md p-3 bg-white">
+              {/* Calendar Icon */}
+              <img
+                src={calendarIcon}
+                alt="Calendar Icon"
+                className="w-5 h-5 text-gray-500 mr-2"
+              />
+
+              <select className="w-full bg-transparent outline-none appearance-none">
+                <option>25 February 2025</option>
+                <option>26 February 2025</option>
+                <option>27 February 2025</option>
+              </select>
+
+              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                <svg
+                  className="w-5 h-5 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
           {/* Destination Selector */}
           <div className="flex-1">
             <label className="block mb-2 font-medium">Destination</label>
@@ -84,32 +98,46 @@ const Section2 = () => {
           </div>
 
           {/* Persons Selector */}
-        {/* Persons Selector */}
-<div className="flex-1">
-  <label className="block mb-2 font-medium">Persons</label>
-  <div className="relative flex items-center border rounded-md p-3 bg-white">
-    {/* User Icon from Assets */}
-    <img src={userIcon} alt="User Icon" className="w-5 h-5 text-gray-500 mr-2" />
-    
-    <select className="w-full bg-transparent outline-none appearance-none">
-      <option>2 Adult - 2 Children's</option>
-      <option>1 Adult</option>
-      <option>2 Adults</option>
-      <option>2 Adults - 1 Child</option>
-    </select>
-    
-    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-      <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-      </svg>
-    </div>
-  </div>
-</div>
+          {/* Persons Selector */}
+          <div className="flex-1">
+            <label className="block mb-2 font-medium">Persons</label>
+            <div className="relative flex items-center border rounded-md p-3 bg-white">
+              {/* User Icon from Assets */}
+              <img
+                src={userIcon}
+                alt="User Icon"
+                className="w-5 h-5 text-gray-500 mr-2"
+              />
 
+              <select className="w-full bg-transparent outline-none appearance-none">
+                <option>2 Adult - 2 Children's</option>
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>2 Adults - 1 Child</option>
+              </select>
+
+              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                <svg
+                  className="w-5 h-5 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
 
           {/* Search Button */}
           <div className="flex items-end">
-            <button className="w-full md:w-auto bg-teal-800 text-white py-3 px-8 rounded-md hover:bg-teal-700 transition">
+            <button className="w-full md:w-auto bg-primary text-white py-3 px-8 rounded-md hover:bg-teal-700 transition">
               Search Now
             </button>
           </div>
