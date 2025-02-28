@@ -64,7 +64,11 @@ const Section7 = () => {
             ))}
           </p>
 
-          <img src="./src/assets/explore-btn.svg" alt="Explore Button" />
+          <img
+            className="cursor-pointer"
+            src="./src/assets/explore-btn.svg"
+            alt="Explore Button"
+          />
 
           {/* Animated Logo Text */}
           <div className="mt-10 md:mt-10 lg:mt-20 text-7xl sm:text-9xl md:text-[10rem]">

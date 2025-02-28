@@ -152,7 +152,7 @@ const Section = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isTextInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-              className="font-satoshi text-xl border border-white inline-block py-2 px-5 rounded-sm text-white/90 mb-4"
+              className="font-satoshi cursor-pointer hover:bg-white hover:text-black text-xl border border-white inline-block py-2 px-5 rounded-sm text-white/90 mb-4"
             >
               Explore Now
             </motion.p>
