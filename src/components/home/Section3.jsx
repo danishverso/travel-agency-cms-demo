@@ -127,9 +127,9 @@ const Section3 = () => {
         </motion.p>
       </div>
       <motion.p
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0.7, y: 50 }}
         animate={isTextInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 1.2, ease: "easeIn", delay: 0.5 }}
+        transition={{ duration: 1.2, ease: "easeIn", delay: 0.2 }}
       >
         {isMobile ? (
           // Mobile slider view
