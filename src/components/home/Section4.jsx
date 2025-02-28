@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
+import { motion } from "framer-motion";
 
 const Section4 = () => {
   // ... existing code ...
@@ -170,22 +171,40 @@ const Section4 = () => {
   return (
     <section className="py-16 container mx-auto">
       <div className="md:mb-8 px-4 md:px-8 lg:px-16 xl:px-12 ">
-        <h3 className="text-xl font-semibold text-black mb-2">
+        <motion.h3 
+          className="text-xl font-semibold text-black mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           Top Destinations
-        </h3>
+        </motion.h3>
         <div className="flex flex-col md:flex-row md:items-end gap-1">
-          <h2 className="text-4xl font-medium md:text-5xl text-primary">
+          <motion.h2 
+            className="text-4xl font-medium md:text-5xl text-primary"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             Discover <span className="text-4xl text-black"> Your Next</span>
             <br></br>
             <span className="mr-3 text-4xl text-black">Dream</span>
             <span>Destination</span>
-          </h2>
+          </motion.h2>
 
-          <p className=" text-gray-600 md:max-w-md md:ml-auto text-sm md:text-right mt-4">
+          <motion.p 
+            className="text-gray-600 md:max-w-md md:ml-auto text-sm md:text-right mt-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In
             Sit Et Integer Vestibulum. Mi Euismod Id Urna Malesuada. Farmlacius
             Facilisis Eget Pellentesque Et. Fusce Egestas Mauris Mi M Eget.
-          </p>
+          </motion.p>
         </div>
       </div>
 
