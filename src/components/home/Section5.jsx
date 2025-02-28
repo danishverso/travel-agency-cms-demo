@@ -128,15 +128,27 @@ const Section5 = () => {
         <h3 className="text-xl font-semibold text-gray-800">Top Packages</h3>
 
         <div className="mt-4 md:mt-0">
-          <h2 className="text-3xl md:text-5xl ">
+          <motion.h2
+            className="text-3xl md:text-5xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             Top Tours To <span className="text-primary">Spark</span> Your
             <br />
             <span className="text-primary">Wanderlust</span>
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-xl">
+          </motion.h2>
+          <motion.p
+            className="mt-4 text-gray-600 max-w-xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
             Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In
             Sit Et Integer Vestibulum. Mi Euismod Id Urna Malesuada.
-          </p>
+          </motion.p>
         </div>
       </div>
 
