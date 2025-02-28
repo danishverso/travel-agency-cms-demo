@@ -2,56 +2,58 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 
 const Section4 = () => {
+  // ... existing code ...
   const destinations = [
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1505881502353-a1986add3762?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80",
-      title: "Lorem Ipsum Dolor",
+        "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Santorini, Greece",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
+        "Explore the stunning white-washed buildings and blue domes overlooking the Aegean Sea. Perfect for romantic getaways and breathtaking sunsets.",
     },
     {
       id: 2,
       image:
         "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Lorem Ipsum Dolor",
+      title: "Bali, Indonesia",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Vestibulumviva Hello Mua Vitae Nisi Eget In Sit Et Integer Vestibulum",
+        "Discover lush rice terraces, sacred temples, and pristine beaches. Experience the perfect blend of relaxation, culture, and adventure in this tropical paradise.",
     },
     {
       id: 3,
       image:
         "https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2535&q=80",
-      title: "Lorem Ipsum Dolor",
+      title: "Kyoto, Japan",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Integer Vestibulumviva",
+        "Immerse yourself in ancient temples, traditional tea houses, and stunning cherry blossoms. Experience Japan's rich cultural heritage.",
     },
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Lorem Ipsum Dolor",
+        "https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Machu Picchu, Peru",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
+        "Trek to this ancient Incan citadel nestled high in the Andes mountains. A bucket-list destination for history lovers and adventurers alike.",
     },
     {
-      id: 4,
+      id: 5,
       image:
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Lorem Ipsum Dolor",
+        "https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Amalfi Coast, Italy",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
+        "Drive along dramatic coastal roads, visit charming cliffside villages, and savor authentic Italian cuisine with stunning Mediterranean views.",
     },
     {
-      id: 4,
+      id: 6,
       image:
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Lorem Ipsum Dolor",
+        "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      title: "Serengeti, Tanzania",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Heloo Ee",
+        "Witness the incredible wildlife and vast savannas on an unforgettable safari. Home to the Great Migration, one of nature's most spectacular events.",
     },
   ];
+  // ... existing code ...
 
   const scrollContainerRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
