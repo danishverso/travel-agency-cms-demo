@@ -159,14 +159,14 @@ const Section4 = () => {
   return (
     <section className="py-16 container mx-auto">
       <div className="md:mb-8 px-4 md:px-8 lg:px-16 xl:px-12 ">
-        <h3 className="text-xl font-medium text-black mb-2">
+        <h3 className="text-xl font-semibold text-black mb-2">
           Top Destinations
         </h3>
         <div className="flex flex-col md:flex-row md:items-end gap-1">
           <h2 className="text-4xl font-medium md:text-5xl text-primary">
             Discover <span className="text-4xl text-black"> Your Next</span>
             <br></br>
-            <span className="mr-2 text-4xl text-black">Dream</span>
+            <span className="mr-3 text-4xl text-black">Dream</span>
             <span>Destination</span>
           </h2>
 
