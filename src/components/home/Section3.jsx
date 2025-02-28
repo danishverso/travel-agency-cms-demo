@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Section3 = () => {
+  // State to track screen width
+  const [isMobile, setIsMobile] = useState(false);
+  // State to track current slide index
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Effect to check screen size
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is typical md breakpoint
+    };
+
+    // Check on initial load
+    checkIfMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkIfMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   // Array of image objects with all necessary data
   const galleryImages = [
     // First row
@@ -55,6 +76,19 @@ const Section3 = () => {
     },
   ];
 
+  // Functions to control slider
+  const nextSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  };
+
   return (
     <section className="py-16 px-4 container mx-auto">
       <div className="text-center mb-16">
@@ -69,24 +103,103 @@ const Section3 = () => {
         </p>
       </div>
 
-      <div className="max-w-screen-lg mx-auto px-4">
-        <div className="grid grid-cols-12 gap-4 md:gap-6 lg:h-[40rem]">
-          {galleryImages.map((image) => (
-            <div
-              key={image.id}
-              className={`col-span-12 md:col-span-4 lg:col-span-4 ${image.height} ${image.position}`}
-            >
-              <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 h-full">
+      {isMobile ? (
+        // Mobile slider view
+        <div className="max-w-screen-lg mx-auto px-4 relative">
+          <div className="relative overflow-hidden rounded-xl shadow-md h-80">
+            {galleryImages.map((image, index) => (
+              <div
+                key={image.id}
+                className={`absolute w-full h-full transition-all duration-200 fade-in ${
+                  index === currentSlide ? "opacity-100 " : "opacity-0 "
+                }`}
+              >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-64 md:h-full object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
+            ))}
+
+            {/* Navigation buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow-md z-10"
+              aria-label="Previous slide"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow-md z-10"
+              aria-label="Next slide"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+
+            {/* Dots indicator */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              {galleryImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full ${
+                    currentSlide === index ? "bg-primary" : "bg-gray-300"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        // Desktop grid view (original layout)
+        <div className="max-w-screen-lg mx-auto px-4">
+          <div className="grid grid-cols-12 gap-4 md:gap-6 lg:h-[40rem]">
+            {galleryImages.map((image) => (
+              <div
+                key={image.id}
+                className={`col-span-12 md:col-span-4 lg:col-span-4 ${image.height} ${image.position}`}
+              >
+                <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 h-full">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-64 md:h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
