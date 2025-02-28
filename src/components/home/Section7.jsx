@@ -66,8 +66,18 @@ const Section7 = () => {
 
           <img src="./src/assets/explore-btn.svg" alt="Explore Button" />
 
+          {/* Animated Logo Text */}
           <div className="mt-10 md:mt-10 lg:mt-20 text-7xl sm:text-9xl md:text-[10rem]">
-            L O G O
+            {"L O G O".split(" ").map((letter, i) => (
+              <motion.span
+                key={i}
+                className="inline-block"
+                variants={textVariants}
+                custom={i + 2} // Reduced delay value to make animation start earlier
+              >
+                {letter}
+              </motion.span>
+            ))}
           </div>
 
           <div className="px-14 pb-2 flex flex-col md:flex-row absolute bottom-20 items-center justify-between w-full gap-3">
