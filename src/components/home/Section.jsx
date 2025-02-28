@@ -9,17 +9,11 @@ import Face from "../../assets/facebook.svg";
 
 const Section = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
+  const textRef = useRef(null);
+  const isTextInView = useInView(textRef, { once: true });
 
   return (
-    <motion.div
-      ref={sectionRef}
-      initial={{ opacity: 0, y: 100 }} // Start hidden and move up
-      animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-      transition={{ duration: 1.2, ease: "easeOut" }} // Smooth transition
-      className="container mx-auto relative "
-    >
+    <div className="container mx-auto relative">
       <div className="m-2 rounded-lg overflow-hidden">
         {/* Navigation Bar */}
         <nav className="absolute  top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-4 lg:px-8">
@@ -126,32 +120,34 @@ const Section = () => {
             src="./src/assets/main-with-design.png"
             alt="Tropical beach with boats"
             className="w-full h-[45rem] object-cover object-top"
-          />{" "}
-          <div className="absolute left-1/2 -translate-x-1/2  flex items-center justify-center shadow-md">
-            <span className="text-xl font-bold">LOGO</span>
-          </div>
+          />
           {/* Hero Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }} // Start hidden
-            animate={{ opacity: 1, y: 0 }} // Animate when loaded
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }} // Smooth effect with slight delay
-            className="absolute bottom-10 left-10 text-white"
-          >
-            <h1 className="font-satoshi text-5xl mb-2">
+          <div ref={textRef} className="absolute bottom-10 left-10 text-white">
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={isTextInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="font-satoshi text-4xl sm:text-5xl mb-2"
+            >
               Discover the World,
               <br className="hidden sm:block" />
               One Destination at a Time!
-            </h1>
+            </motion.h1>
 
-            <p className="font-satoshi text-[16px] text-white/90 mb-4">
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={isTextInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+              className="font-satoshi text-[16px] text-white/90 mb-4"
+            >
               Want a fully personalized travel experience? Design your own
               itinerary, choose your <br /> destinations, and travel at your own
               pace.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
