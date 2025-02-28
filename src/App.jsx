@@ -8,7 +8,7 @@ import Section7 from "./components/home/Section7";
 
 export default function Home() {
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-full overflow-x-hidden">
       <Section />
       <Section2 />
       <Section3 />
