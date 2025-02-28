@@ -41,16 +41,6 @@ const Section = () => {
           </div>
 
           {/* Logo */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 bg-white px-10 py-3 flex items-center justify-center shadow-md"
-            style={{
-              clipPath:
-                "polygon(0% 10%, 10% 0%, 90% 0%, 100% 10%, 85% 100%, 15% 100%)",
-              borderRadius: "10px",
-            }}
-          >
-            <span className="text-xl font-bold">LOGO</span>
-          </div>
 
           {/* Search & Menu */}
           <div className="flex items-center space-x-4 ml-auto">
@@ -130,9 +120,9 @@ const Section = () => {
         {/* Hero Section */}
         <div className="">
           <img
-            src="./src/assets/main.jpeg"
+            src="./src/assets/main-with-logo.png"
             alt="Tropical beach with boats"
-            className="w-full h-[45rem] object-cover"
+            className="w-full h-[45rem] object-cover object-top"
           />
 
           {/* Hero Text */}
@@ -144,7 +134,7 @@ const Section = () => {
           >
             <h1 className="font-satoshi text-5xl mb-2">
               Discover the World,
-              <br />
+              <br className="hidden sm:block" />
               One Destination at a Time!
             </h1>
 
