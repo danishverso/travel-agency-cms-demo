@@ -70,9 +70,11 @@ const Section4 = () => {
           Top Destinations
         </h3>
         <div className="flex flex-col md:flex-row md:items-end gap-1">
-          <h2 className="text-4xl md:text-5xl text-primary">
-            Discover <span className="text-black"> Your Next Dream</span>
-            <span className="ml-3">Destination</span>
+          <h2 className="text-4xl font-medium md:text-5xl text-primary">
+            Discover <span className="text-4xl text-black"> Your Next</span>
+            <br></br>
+            <span className="mr-2 text-4xl text-black">Dream</span>
+            <span>Destination</span>
           </h2>
 
           <p className=" text-gray-600 md:max-w-md md:ml-auto text-sm md:text-right mt-4">

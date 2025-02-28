@@ -5,7 +5,7 @@ const Section3 = () => {
     <section className="py-16 px-4 container mx-auto">
       <div className="text-center mb-16">
         <h3 className="font-satoshi text-[24px] font-medium mb-2">About Us</h3>
-        <h2 className="font-satoshi text-[48px] text-4xl font-bold mb-4">
+        <h2 className="font-satoshi text-[48px] text-5xl  mb-4">
           Welcome to <span className="text-primary">Serenity</span>
         </h2>
         <p className="font-satoshi text-[24.02px] max-w-[900px] mx-auto text-gray-600 leading-[1.3] tracking-wide text-center">
