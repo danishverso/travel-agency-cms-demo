@@ -131,9 +131,9 @@ const Section5 = () => {
 
         <div className="mt-4 md:mt-0">
           <h2 className="text-3xl md:text-5xl ">
-            Top Tours To <span className="text-teal-600">Spark</span> Your
+            Top Tours To <span className="text-primary">Spark</span> Your
             <br />
-            <span className="text-teal-600">Wanderlust</span>
+            <span className="text-primary">Wanderlust</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-xl">
             Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In

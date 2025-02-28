@@ -29,7 +29,7 @@ const Section2 = () => {
       {/* Find Your Destination Section */}
       <div className="mb-12">
         <h2 className="text-4xl  mb-8">
-          Find Your <span className="text-teal-600">Destination!</span>
+          Find Your <span className="text-primary">Destination!</span>
         </h2>
 
         <div className="flex flex-col md:flex-row gap-4 mb-8">
