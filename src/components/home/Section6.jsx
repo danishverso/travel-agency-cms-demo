@@ -34,6 +34,7 @@ const Section6 = () => {
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
+  
   return (
     <div className="container mx-auto py-16 px-4">
       <h2 className="text-center text-xl  mb-4">Testimonials</h2>
