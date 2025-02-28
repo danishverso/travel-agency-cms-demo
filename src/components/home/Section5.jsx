@@ -23,89 +23,89 @@ const Section5 = () => {
       id: 1,
       title: "Santorini Sunset Escape",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
+        "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       days: 4,
       nights: 3,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et Integer Vestibulumiva.",
+        "Experience the breathtaking sunsets of Santorini with our exclusive tour package. Explore white-washed villages, volcanic beaches, and enjoy authentic Greek cuisine.",
       price: 910,
     },
     {
       id: 2,
-      title: "Santorini Sunset",
+      title: "Bali Paradise Retreat",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
-      days: 3,
-      nights: 2,
+        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      days: 5,
+      nights: 4,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
-      price: 750,
+        "Discover the tropical paradise of Bali with its lush rice terraces, sacred temples, and pristine beaches. Includes yoga sessions and traditional spa treatments.",
+      price: 850,
     },
     {
       id: 3,
-      title: "Santorini Sunset",
+      title: "Kyoto Cultural Journey",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
-      days: 5,
-      nights: 4,
+        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      days: 6,
+      nights: 5,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
-      price: 1050,
+        "Immerse yourself in Japanese culture with our Kyoto tour. Visit ancient temples, participate in a traditional tea ceremony, and explore bamboo forests.",
+      price: 1150,
     },
     {
       id: 4,
-      title: "Santorini Sunset",
+      title: "Amalfi Coast Adventure",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
+        "https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       days: 5,
       nights: 4,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
+        "Journey along Italy's stunning Amalfi Coast. Enjoy scenic drives, charming coastal towns, and delicious Mediterranean cuisine with breathtaking sea views.",
       price: 1050,
     },
     {
       id: 5,
-      title: "Santorini Sunset",
+      title: "Machu Picchu Expedition",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
-      days: 5,
-      nights: 4,
+        "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      days: 7,
+      nights: 6,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
-      price: 1050,
+        "Trek the legendary Inca Trail to Machu Picchu. Explore ancient ruins, experience Andean culture, and witness the breathtaking beauty of the Sacred Valley.",
+      price: 1250,
     },
     {
       id: 6,
-      title: "Santorini Sunset",
+      title: "Serengeti Safari",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
-      days: 5,
-      nights: 4,
+        "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      days: 6,
+      nights: 5,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
-      price: 1050,
+        "Embark on an unforgettable wildlife safari in Tanzania's Serengeti National Park. Witness the Great Migration and spot the Big Five in their natural habitat.",
+      price: 1950,
     },
     {
       id: 7,
-      title: "Santorini Sunset",
+      title: "Northern Lights Iceland",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
-      days: 5,
-      nights: 4,
+        "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      days: 4,
+      nights: 3,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
-      price: 1050,
+        "Chase the magical Northern Lights in Iceland. Relax in geothermal hot springs, explore ice caves, and marvel at stunning waterfalls and black sand beaches.",
+      price: 1150,
     },
     {
       id: 8,
-      title: "Santorini Sunset",
+      title: "Maldives Luxury Getaway",
       image:
-        "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", // Replace with your actual image path
+        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       days: 5,
       nights: 4,
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Vivamus Vitae Nisi Eget In Sit Et.",
-      price: 1050,
+        "Indulge in luxury at our exclusive Maldives resort. Stay in overwater bungalows, snorkel in crystal-clear waters, and enjoy world-class spa treatments.",
+      price: 2050,
     },
     // Add more tours as needed
   ];
