@@ -122,8 +122,6 @@ const Section5 = () => {
     }
   };
 
-  const WIDTH_OF_SIDE_IMAGES = useRef(14);
-
   return (
     <section className="px-4 h-200 md:px-8 lg:px-32 container mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start mb-8">
@@ -183,7 +181,7 @@ const Section5 = () => {
           className="ml-0 sm:ml-[23%] flex transition-transform duration-300 ease-in-out"
           style={{
             transform: `translateX(-${
-              currentSlide * WIDTH_OF_SIDE_IMAGES.current
+              currentSlide * 14
             }%)`,
             width: `${tours.length * 20.33}%`,
             ...(isMobile && { transform: "translateX(0)", width: "100%" }), // Override transform on mobile
@@ -236,7 +234,7 @@ const Section5 = () => {
               ) : (
                 <div
                   key={tour.id}
-                  className={`hidden sm:block w-[${WIDTH_OF_SIDE_IMAGES.current}%] flex-shrink-0 px-1  transition-all duration-300 `}
+                  className={`hidden sm:block w-[14%] flex-shrink-0 px-1  transition-all duration-300 `}
                 >
                   <img
                     src={tour.image}
