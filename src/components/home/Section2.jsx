@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import userIcon from "../../assets/user.svg";
 import calendarIcon from "../../assets/calender.svg";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Section2 = () => {
   // Updated array with image data including titles and descriptions
-  const [imageData, setImageData] = useState([
+  const [imageData] = useState([
     {
       url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1139&q=80",
       smallImageUrl:
@@ -39,6 +39,7 @@ const Section2 = () => {
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor.",
     },
   ]);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
 
@@ -57,7 +58,7 @@ const Section2 = () => {
     );
   };
 
-  // Animation settings object with much faster transitions
+  // Animation settings object with faster transitions
   const animationSettings = {
     variants: {
       enter: (direction) => ({
@@ -84,11 +85,21 @@ const Section2 = () => {
     },
   };
 
+  // useRef and useInView to trigger scroll animation from the top
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { triggerOnce: true, margin: "-100px" });
+
   return (
-    <div className="container mt-10 mx-auto px-4 py-12 overflow-hidden">
+    <motion.div
+      ref={sectionRef}
+      initial={{ opacity: 0, y: -50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container mt-10 mx-auto px-4 py-12 overflow-hidden"
+    >
       {/* Find Your Destination Section */}
-      <div className="mb-12 ">
-        <h2 className="text-5xl  mb-8">
+      <div className="mb-12">
+        <h2 className="text-5xl mb-8">
           Find Your <span className="text-primary">Destination!</span>
         </h2>
 
@@ -97,19 +108,12 @@ const Section2 = () => {
           <div className="flex-1">
             <label className="block mb-2 font-medium">Departure</label>
             <div className="relative flex items-center border rounded-md p-3 bg-white">
-              {/* Calendar Icon */}
-              <img
-                src={calendarIcon}
-                alt="Calendar Icon"
-                className="w-5 h-5 text-gray-500 mr-2"
-              />
-
+              <img src={calendarIcon} alt="Calendar Icon" className="w-5 h-5 mr-2" />
               <select className="w-full bg-transparent outline-none appearance-none">
                 <option>25 February 2025</option>
                 <option>26 February 2025</option>
                 <option>27 February 2025</option>
               </select>
-
               <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                 <svg
                   className="w-5 h-5 text-gray-500"
@@ -118,12 +122,7 @@ const Section2 = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </div>
             </div>
@@ -146,36 +145,22 @@ const Section2 = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </div>
             </div>
           </div>
-
-          {/* Persons Selector */}
           {/* Persons Selector */}
           <div className="flex-1">
             <label className="block mb-2 font-medium">Persons</label>
             <div className="relative flex items-center border rounded-md p-3 bg-white">
-              {/* User Icon from Assets */}
-              <img
-                src={userIcon}
-                alt="User Icon"
-                className="w-5 h-5 text-gray-500 mr-2"
-              />
-
+              <img src={userIcon} alt="User Icon" className="w-5 h-5 mr-2" />
               <select className="w-full bg-transparent outline-none appearance-none">
                 <option>2 Adult - 2 Children's</option>
                 <option>1 Adult</option>
                 <option>2 Adults</option>
                 <option>2 Adults - 1 Child</option>
               </select>
-
               <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                 <svg
                   className="w-5 h-5 text-gray-500"
@@ -184,17 +169,11 @@ const Section2 = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </div>
             </div>
           </div>
-
           {/* Search Button */}
           <div className="flex items-end">
             <button className="w-full md:w-auto bg-primary text-white py-3 px-8 rounded-md hover:bg-teal-700 transition">
@@ -242,12 +221,8 @@ const Section2 = () => {
               transition={animationSettings.transition}
               className="pt-5"
             >
-              <h3 className="text-4xl mb-4">
-                {imageData[currentImageIndex].title}
-              </h3>
-              <p className="text-gray-600">
-                {imageData[currentImageIndex].description}
-              </p>
+              <h3 className="text-4xl mb-4">{imageData[currentImageIndex].title}</h3>
+              <p className="text-gray-600">{imageData[currentImageIndex].description}</p>
             </motion.div>
           </AnimatePresence>
 
@@ -256,13 +231,8 @@ const Section2 = () => {
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.img
                   key={currentImageIndex}
-                  src={
-                    imageData[(currentImageIndex + 1) % imageData.length]
-                      .smallImageUrl
-                  }
-                  alt={
-                    imageData[(currentImageIndex + 1) % imageData.length].title
-                  }
+                  src={imageData[(currentImageIndex + 1) % imageData.length].smallImageUrl}
+                  alt={imageData[(currentImageIndex + 1) % imageData.length].title}
                   className="w-full h-full object-cover"
                   custom={direction}
                   variants={animationSettings.variants}
@@ -274,10 +244,7 @@ const Section2 = () => {
               </AnimatePresence>
             </div>
             <span className="text-gray-500">
-              <span className="text-2xl text-black">
-                {" "}
-                {currentImageIndex + 1}
-              </span>
+              <span className="text-2xl text-black">{currentImageIndex + 1}</span>
               <span className="text-gray-400">/{imageData.length}</span>
             </span>
             <div className="ml-auto flex gap-2">
@@ -286,19 +253,8 @@ const Section2 = () => {
                 onClick={goToPrevious}
                 aria-label="Previous image"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 19l-7-7 7-7"
-                  ></path>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
               </button>
               <button
@@ -306,19 +262,8 @@ const Section2 = () => {
                 onClick={goToNext}
                 aria-label="Next image"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                 </svg>
               </button>
             </div>
@@ -344,7 +289,7 @@ const Section2 = () => {
           </AnimatePresence>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
