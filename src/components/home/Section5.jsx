@@ -125,7 +125,7 @@ const Section5 = () => {
   return (
     <section className="px-4 h-200 md:px-8 lg:px-32 container mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start mb-8">
-        <h3 className="text-lg font-medium text-gray-800">Top Packages</h3>
+        <h3 className="text-xl font-semibold text-gray-800">Top Packages</h3>
 
         <div className="mt-4 md:mt-0">
           <h2 className="text-3xl md:text-5xl ">

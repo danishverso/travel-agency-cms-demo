@@ -61,7 +61,7 @@ const Section6 = () => {
 
   return (
     <motion.div
-      className="container mx-auto py-56 px-4"
+      className="container mx-auto py-32 md:py-56 px-4"
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -72,7 +72,7 @@ const Section6 = () => {
       <div className="max-w-7xl mx-auto text-center">
         <h2
           ref={textRef}
-          className="text-xl md:text-5xl mb-12 font-light justify-center"
+          className="text-3xl md:text-5xl mb-12 font-light justify-center"
           style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}
         >
           {words.map((word, index) => (
